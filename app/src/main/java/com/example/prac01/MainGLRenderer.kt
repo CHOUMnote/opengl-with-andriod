@@ -20,6 +20,7 @@ class MainGLRenderer(val context: Context) : GLSurfaceView.Renderer{
     private lateinit var mCube: MyColorCube
     private lateinit var mHex: MyHexapyramid
     private lateinit var mGround: MyGround
+    private lateinit var mTexCube: MyTexCube
     private lateinit var mTexGround: MyTexGround
 
     private var projectionMatrix = FloatArray(16)
@@ -66,6 +67,7 @@ class MainGLRenderer(val context: Context) : GLSurfaceView.Renderer{
                 mGround = MyGround()
             }
             8 -> {
+                mTexCube = MyTexCube(context)
                 mTexGround = MyTexGround(context)
             }
         }
@@ -259,6 +261,7 @@ class MainGLRenderer(val context: Context) : GLSurfaceView.Renderer{
                 mGround.draw(vpMatrix)
             }
             8 -> {
+                mTexCube.draw(vpMatrix)
                 mTexGround.draw(vpMatrix)
             }
         }
